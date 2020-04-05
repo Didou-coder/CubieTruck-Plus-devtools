@@ -23,4 +23,4 @@ cpp-arm-linux-gnueabihf
 libusb-1.0-0
 libusb-1.0-0-dev
 kernel-package
-
+bsdtar
