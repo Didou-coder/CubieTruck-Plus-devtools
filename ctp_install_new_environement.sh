@@ -47,5 +47,9 @@ case $flash in
      ;;
 esac
 
+#starting tracking of rootfs modifications
+echo 'v1.0' > $workspace/$1/rootfs_versiontrack
+
+#blacklisting workspace in extra tools git repository
 echo $1 >> .gitignore
 
