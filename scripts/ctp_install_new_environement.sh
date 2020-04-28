@@ -35,20 +35,8 @@ case $choice in
      ;;
 esac
 
-# root fs choice
-echo '  '
-echo '  '
-read -p 'Do you intend to flash the board`s eMMC? (yes/no)' flash
-
-case $flash in
-  yes) cp $workspace/rootfs_factory/card_flash_rootfs-v1.0.tar.gz $workspace/$1/rootfs/
-       ;;
-  *) echo 'assuming no was the answer'
-     ;;
-esac
-
 #starting tracking of rootfs modifications
-echo 'v1.0' > $workspace/$1/rootfs_versiontrack
+cp ../makeimage.template makeimage
 
 #blacklisting workspace in extra tools git repository
 echo $1 >> .gitignore

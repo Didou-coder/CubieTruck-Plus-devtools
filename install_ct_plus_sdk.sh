@@ -20,13 +20,11 @@ chgroup vboxsf rootfs_source
 #linking scripts in the /usr/local/bin directory
 sdk_dir=$(pwd)
 cd /usr/local/bin
-for tool in $(ls $sdk_dir/ctp_*); do
-  name=${tool#$sdk_dir/}
+for tool in $(ls $sdk_dir/scripts/ctp_*); do
+  name=${tool#$sdk_dir/scripts/}
   name=$(echo $name | cut -d '.' -f1)
   sudo ln -s $tool $name
 done
-
-
 
 
 

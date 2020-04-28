@@ -1,3 +1,0 @@
-#rule for shortcut on the virtual usb key 
-KERNEL=="sd?", BUS=="usb", SUBSYSTEM=="block", SYMLINK+="cleusb"
-

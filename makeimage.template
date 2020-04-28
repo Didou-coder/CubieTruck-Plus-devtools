@@ -1,0 +1,4 @@
+TARGET=card-hdmi
+ROOTFSVER=v1.0
+VERSIONIMG=00
+
