@@ -26,6 +26,12 @@ I also choose ext3 filesystem I case of problem I can access it in windows.
 Once installation complete, add Virtualbox Guest Additions
 if the guest addition don't mount then acces the disc via Windows Disk Manager and using Ext2Fsd tools.
 Mount the guest addition iso the copy the content in the /media/cdrom folder.
-Return to the machine and install the guest additions.
+Return to the machine and install the guest additions by running ./VBoxLinuxAdditions.run (don't forget chmod of course).
+
+Install git to retraive the OS SDK.
+
+Clone your favorite Github project:-)
+
+
 
 
