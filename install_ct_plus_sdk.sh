@@ -12,10 +12,10 @@ done
 
 # install basic sdk root
 mkdir image_repo
-chgroup vboxsf image_repo
+chgrp vboxsf image_repo
 mkdir rootfs_factory
 mkdir rootfs_source
-chgroup vboxsf rootfs_source
+chgrp vboxsf rootfs_source
 
 #linking scripts in the /usr/local/bin directory
 sdk_dir=$(pwd)
