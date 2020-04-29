@@ -2,6 +2,13 @@
 
 target=$1
 
+if [[ -z $target ]]
+then
+  echo 'Keeping last target!'
+  target=$(cat makeimage | grep TARGET= | cut -d "=" -f2)
+fi
+
+
 case $target in
   *-hdmi) echo -e '0\n1\n' > target.conf
           source tools/scripts/envsetup.sh < target.conf
@@ -9,9 +16,6 @@ case $target in
   *-dp) echo -e '0\n0\n' > target.conf
         source tools/scripts/envsetup.sh < target.conf
         ;;
-  *) echo 'Keeping last target!'
-     target=$(cat makeimage | grep TARGET= | cut -d "=" -f2)
-     ;;
 esac
 
 if [[ -e target.conf ]];then
@@ -19,17 +23,6 @@ if [[ -e target.conf ]];then
 fi
 
 sed -i 's/TARGET=.*/TARGET='$target'/g' makeimage
-
-#updating maketarget version
-version=$(cat makeimage | grep VERSIONIMG=)
-num=$(echo $version | cut -d '=' -f2)
-let "num++"
-if [[ $num < 10 ]]
-then
-  num=0$num
-fi
-
-sed -i 's/'$version'/VERSIONIMG='$num'/' makeimage
 
 #clean usb key
 echo ' '
