@@ -21,12 +21,15 @@ newfilename=$(echo $stdrootfsname | sed 's/linaro-desktop-trusty/'$1'/')
 newfilename=$(echo $newfilename | sed 's/v1.1/'$newversion'/')
 
 #storing filesystem status under new archive
-tar -czvf '../rootfs_source/'$newfilename binary
+bsdtar -czvf '../rootfs_source/'$newfilename binary
 
 #installing new file system in $1 SDK
 rm -f ../$1/rootfs/$stdrootfsname
 cp '../rootfs_source/'$newfilename ../$1/rootfs/$stdrootfsname
 
 #storing new version
-sed -i 's/ROOTFSVER=.*/ROOTFSVER='$newversion'/g' ../$1/makeimage
+if [[ -e ../rootfs_source/${newfilename} ]]
+then
+  sed -i 's/ROOTFSVER=.*/ROOTFSVER='$newversion'/g' ../$1/makeimage
+fi
 

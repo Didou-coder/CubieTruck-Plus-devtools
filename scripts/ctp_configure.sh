@@ -35,7 +35,7 @@ echo -e 'o\nw\n' | fdisk /dev/sdb
 sync
 echo -e 'n\np\n1\n\n\nw\n' | fdisk /dev/sdb
 sync
-mkfs.ext4 /dev/sdb1
+mkfs.ntfs /dev/sdb1
 
 umount /dev/sdb1
 
